@@ -32,17 +32,12 @@ export function HeaderActions({
 }: Props) {
   return (
     <div className="flex items-center gap-3">
-      {showSearch ? (
-        <SearchBar onClose={onCloseSearch} />
-      ) : (
-        <IconButton
-          ariaLabel="Search"
-          onClick={onToggleSearch}
-        >
-          <Search size={20} />
-        </IconButton>
-      )}
-
+      
+      <ThemeToggle
+        isDark={isDark}
+        onToggle={onToggleTheme}
+      />
+      
       <IconButton ariaLabel="Wishlist" onClick={onWishList}>
         <Heart size={20} />
       </IconButton>
@@ -59,10 +54,18 @@ export function HeaderActions({
         <User size={20} />
       </IconButton>
 
-      <ThemeToggle
-        isDark={isDark}
-        onToggle={onToggleTheme}
-      />
+      
+
+      {showSearch ? (
+        <SearchBar onClose={onCloseSearch} />
+      ) : (
+        <IconButton
+          ariaLabel="Search"
+          onClick={onToggleSearch}
+        >
+          <Search size={20} />
+        </IconButton>
+      )}
     </div>
   );
 }

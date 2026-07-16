@@ -9,7 +9,7 @@ export function AppRoutes() {
                 <Route element={<MainLayout />}>
 
                 <Route
-                    path="/"
+                        path="/"
                         element={<Home />} />
                     
                 </Route>

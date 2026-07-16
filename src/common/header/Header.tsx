@@ -1,37 +1,45 @@
 import { HeaderActions } from "./components/HeaderActions";
-import { HeaderNav } from "./components/HeaderNav";
+import { HeaderNavigation } from "./components/HeaderNav";
 import { HeaderTitle } from "./components/HeaderTitle";
+import { LoginButton } from "./components/LoginButton";
 
 export function Header() {
-    return (
-        <header className="sticky z-50 border-b border-border bg-surface/90 backdrop-blur-md">
-            <div className="w-full flex h-20 items-center justify-between px-4 lg:px-8">
-                <HeaderTitle />
-                <HeaderNav />
-                <HeaderActions
-                    isDark={true}
-                    onCart={
-                        () => { }
-                    }
-                    onCloseSearch={
-                        () => { }
-                    }
-                    onProfile={
-                        () => { }
-                    }
-                    onToggleSearch={
-                        () => { }
-                    }
-                    onToggleTheme={
-                        () => { }
-                    }
-                    onWishList={
-                        () => { }
-                    }
-                    showSearch={false}
-                />
-            </div>
-            
-        </header>
-    )
+  return (
+    <header
+      className="
+      sticky
+      top-0
+      z-50
+      border-b
+      border-gray-200
+      bg-white/80
+      backdrop-blur-xl
+      "
+    >
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between">
+
+        <HeaderTitle />
+
+        <HeaderNavigation />
+
+        <div className="flex items-center gap-5">
+
+          <HeaderActions
+            isDark={true}
+            showSearch={false}
+            onToggleTheme={() => {}}
+            onToggleSearch={() => {}}
+            onCloseSearch={() => {}}
+            onWishList={() => {}}
+            onCart={() => {}}
+            onProfile={() => {}}
+          />
+
+          <LoginButton />
+
+        </div>
+
+      </div>
+    </header>
+  );
 }
