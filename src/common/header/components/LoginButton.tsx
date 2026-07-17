@@ -1,6 +1,9 @@
+import { NavLink } from "react-router-dom";
+
 export function LoginButton() {
   return (
-    <button
+    <NavLink
+      to={"/login"}
       className="
       rounded-full
       bg-black
@@ -16,6 +19,6 @@ export function LoginButton() {
       "
     >
       Login
-    </button>
+    </NavLink>
   );
 }
