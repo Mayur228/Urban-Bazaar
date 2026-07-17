@@ -3,6 +3,7 @@ import { MainLayout } from "../layouts/MainLayouts";
 import { Home } from "../features/home/Home";
 import { Login } from "../features/auth/pages/Login";
 import { Signup } from "../features/auth/pages/Signup";
+import { Products } from "../features/products/Products";
 
 export function AppRoutes() { 
     return (
@@ -13,9 +14,10 @@ export function AppRoutes() {
                 <Route
                         path="/"
                         element={<Home />} />
-                        
-                   
-                    
+                  
+                    <Route
+                        path="/products"
+                        element={ <Products />} />
                 </Route>
                 
                  <Route

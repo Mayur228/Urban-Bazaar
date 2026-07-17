@@ -3,25 +3,25 @@ export const categories = [
     id: 1,
     title: "Men",
     image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=80",
+      "https://plus.unsplash.com/premium_photo-1679056835084-7f21e64a3402?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
     title: "Women",
     image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e?w=900&q=80",
+      "https://images.unsplash.com/photo-1525845859779-54d477ff291f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
     title: "Footwear",
     image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
     title: "Accessories",
     image:
-      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=900&q=80",
+      "https://images.unsplash.com/photo-1612902457652-33aff0a641fa?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 5,
@@ -33,6 +33,6 @@ export const categories = [
     id: 6,
     title: "Bags",
     image:
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=80",
+      "https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?q=80&w=763&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
