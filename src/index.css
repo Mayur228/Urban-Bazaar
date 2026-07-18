@@ -131,6 +131,18 @@ ol {
   background: var(--color-surface-light);
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
 /* ===========================
    Selection
 =========================== */

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import type { Category } from "./categories";
+import type { Category } from "../../../types/productsData";
 
 
 interface Props {
@@ -14,12 +14,11 @@ export function CategoryFilter({
   onSelect,
 }: Props) {
   return (
-    <div className="flex gap-4 overflow-x-auto p-2">
+    <div className="flex gap-4 overflow-x-auto hide-scrollbar p-2">
 
       {categories.map((category) => {
 
         const active = selected === category.name;
-        const Icon = category.icon;
 
         return (
           <button
@@ -67,7 +66,8 @@ export function CategoryFilter({
                 }
               `}
             >
-              <Icon size={18} />
+
+              <img className="size-10 rounded-3xl object-cover" src={category.image} alt="category" />
 
               <span className="text-sm font-medium">
                 {category.name}

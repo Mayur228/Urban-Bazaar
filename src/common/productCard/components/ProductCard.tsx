@@ -1,19 +1,12 @@
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import type { Product } from "../../../features/products/types/productsData";
 
-type Props = {
-  product: {
-    name: string;
-    image: string;
-    price: number;
-    oldPrice: number;
-    rating: number;
-    reviews: number;
-    discount: number;
-  };
-};
+interface ProductCardProps {
+  product: Product
+}
 
-export function ProductCard({ product }: Props) {
+export function ProductCard({ product }: ProductCardProps) {
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -23,14 +16,12 @@ export function ProductCard({ product }: Props) {
       <div className="relative overflow-hidden">
 
         <img
-          src={product.image}
-          alt={product.name}
+          src={ product.images?.length
+      ? product.images[0]
+      : "https://placehold.co/600x600?text=No+Image"}
+          alt={product.title}
           className="h-80 w-full object-cover duration-700 group-hover:scale-110"
         />
-
-        <span className="absolute left-4 top-4 rounded-full bg-red-500 px-3 py-1 text-sm font-semibold text-white">
-          -{product.discount}%
-        </span>
 
         <button className="absolute right-4 top-4 rounded-full bg-white p-3 shadow-lg transition hover:bg-red-500 hover:text-white">
           <Heart size={18} />
@@ -41,7 +32,7 @@ export function ProductCard({ product }: Props) {
       <div className="p-6">
 
         <h3 className="text-xl font-semibold">
-          {product.name}
+          {product.title}
         </h3>
 
         <div className="mt-3 flex items-center gap-2">
@@ -52,13 +43,7 @@ export function ProductCard({ product }: Props) {
             color="#FACC15"
           />
 
-          <span>{product.rating}</span>
-
-          <span className="text-gray-500">
-            ({product.reviews})
-          </span>
-
-        </div>
+         </div>
 
         <div className="mt-4 flex items-center gap-3">
 
@@ -66,11 +51,7 @@ export function ProductCard({ product }: Props) {
             ${product.price}
           </span>
 
-          <span className="text-gray-400 line-through">
-            ${product.oldPrice}
-          </span>
-
-        </div>
+          </div>
 
         <button
           className="

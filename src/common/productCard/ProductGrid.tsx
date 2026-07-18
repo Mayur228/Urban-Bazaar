@@ -1,7 +1,11 @@
+import type { Product } from "../../features/products/types/productsData";
 import { ProductCard } from "./components/ProductCard";
-import { products } from "./components/productData";
 
-export function ProductGrid() {
+interface ProductGridProps {
+  products: Product[];
+}
+
+export function ProductGrid({products}: ProductGridProps){
   return (
     <section className="py-10">
 
@@ -15,25 +19,28 @@ export function ProductGrid() {
 
           <h2 className="mt-5 text-5xl font-bold">
             Featured Products
-          </h2>
-
-                  <div className="mt-4">
-                      <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-500">
+                  </h2>
+                  <div className="mt-5">
+                      <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-500 ">
             Discover the most loved products from
             Urban Bazaar.
           </p>
+
                   </div>
+
 
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-
-          {products.map((product) => (
+          
+          {
+            products.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
             />
-          ))}
+          ))
+          }
 
         </div>
 

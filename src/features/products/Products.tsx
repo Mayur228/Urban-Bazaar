@@ -1,46 +1,53 @@
 import { useState } from "react";
 
-import { categories } from "./sections/categories/components/categories";
 import { ProductHeader } from "./components/ProductHeader";
-import { CategoryFilter } from "./sections/categories/components/CategoryFilter";
 import { ProductToolbar } from "./components/ProductToolbar";
-import { ProductGrid } from "./components/ProductGrid";
 import { ProductSearch } from "./components/ProductSearch";
+import { useProducts } from "./hooks/useProducts";
+import { ProductGrid } from "../../common/productCard/ProductGrid";
 import { FilterSidebar } from "./sections/filterSidebar/FilterSidebar";
+import { CategoryFilter } from "./sections/categories/components/CategoryFilter";
+import { categories } from "./sections/categories/components/categories";
+
 
 export function Products() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-const [search, setSearch] = useState("");
-const [filterOpen, setFilterOpen] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState("All");
+    const [search, setSearch] = useState("");
+    const [filterOpen, setFilterOpen] = useState(false);
 
-return (
-    <main className=" space-y-4 mx-auto max-w-7xl px-6 py-12">
+    const {
+        categories,
+        products,
+    } = useProducts();
 
-        <ProductHeader />
+    return (
+        <main className="mx-auto max-w-7xl px-6 py-12 space-y-5">
 
-        <ProductSearch
-            value={search}
-            onChange={setSearch}
-        />
+            <ProductHeader />
 
-        <CategoryFilter
-            categories={categories}
-            selected={selectedCategory}
-            onSelect={setSelectedCategory}
-        />
+            <ProductSearch
+                value={search}
+                onChange={setSearch}
+            />
 
-        <ProductToolbar
-            total={24}
-            onOpenFilters={() => setFilterOpen(true)}
-        />
+            <CategoryFilter
+                categories={categories}
+                selected={selectedCategory}
+                onSelect={setSelectedCategory}
+            />
 
-        <ProductGrid />
+            <ProductToolbar
+                total={24}
+                onOpenFilters={() => setFilterOpen(true)}
+            />
 
-        <FilterSidebar
-            open={filterOpen}
-            onClose={() => setFilterOpen(false)}
-        />
+            <ProductGrid products={products} />
 
-    </main>
-);
+            <FilterSidebar
+                open={filterOpen}
+                onClose={() => setFilterOpen(false)}
+            />
+
+        </main>
+    );
 }
