@@ -4,6 +4,7 @@ import { Home } from "../features/home/Home";
 import { Login } from "../features/auth/pages/Login";
 import { Signup } from "../features/auth/pages/Signup";
 import { Products } from "../features/products/Products";
+import Cart from "../features/cart/Cart";
 
 export function AppRoutes() { 
     return (
@@ -17,7 +18,11 @@ export function AppRoutes() {
                   
                     <Route
                         path="/products"
-                        element={ <Products />} />
+                        element={<Products />} />
+                    
+                    <Route
+                        path="/cart"
+                        element={ <Cart />} />
                 </Route>
                 
                  <Route

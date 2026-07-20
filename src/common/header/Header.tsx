@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { HeaderActions } from "./components/HeaderActions";
 import { HeaderNavigation } from "./components/HeaderNav";
 import { HeaderTitle } from "./components/HeaderTitle";
 import { LoginButton } from "./components/LoginButton";
 
 export function Header() {
+  const navigate = useNavigate();
+
   return (
     <header
       className="
@@ -31,7 +34,7 @@ export function Header() {
             onToggleSearch={() => {}}
             onCloseSearch={() => {}}
             onWishList={() => {}}
-            onCart={() => {}}
+            onCart={() => {navigate("/cart")}}
             onProfile={() => {}}
           />
 

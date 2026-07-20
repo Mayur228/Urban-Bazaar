@@ -37,7 +37,7 @@ export function Products() {
             />
 
             <ProductToolbar
-                total={24}
+                total={products.length}
                 onOpenFilters={() => setFilterOpen(true)}
             />
 

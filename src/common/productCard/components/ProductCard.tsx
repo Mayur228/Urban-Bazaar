@@ -1,12 +1,23 @@
-import { Heart, ShoppingBag, Star } from "lucide-react";
+import { Heart, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Product } from "../../../features/products/types/productsData";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import { addToCart, decreaseQuantity, increaseQuantity } from "../../../features/cart/store/cartSlice";
+import { AddToCartButton } from "./AddToCartButton";
 
 interface ProductCardProps {
   product: Product
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const dispatch = useAppDispatch();
+
+  const cartItem = useAppSelector((state) =>
+  state.cart.items.find((item) => item.id === product.id)
+  );
+  
+  const quantity = cartItem?.quantity ?? 0;
+
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -51,30 +62,24 @@ export function ProductCard({ product }: ProductCardProps) {
             ${product.price}
           </span>
 
-          </div>
-
-        <button
-          className="
-          mt-6
-          flex
-          w-full
-          items-center
-          justify-center
-          gap-2
-          rounded-xl
-          bg-black
-          py-4
-          font-semibold
-          text-white
-          transition
-          hover:bg-amber-500"
-        >
-          <ShoppingBag size={18} />
-
-          Add To Cart
-
-        </button>
-
+        </div>
+        
+        <AddToCartButton
+           quantity={quantity}
+           onAdd={() =>
+             dispatch(
+               addToCart({
+                 id: product.id,
+                 title: product.title,
+                 price: product.price,
+                 image: product.images[0],
+                 quantity: 1,
+               })
+             )
+           }
+           onIncrease={() => dispatch(increaseQuantity(product.id))}
+           onDecrease={() => dispatch(decreaseQuantity(product.id))}
+        />
       </div>
     </motion.div>
   );
