@@ -1,8 +1,13 @@
 import { NavLink } from "react-router-dom";
 
-export function LoginButton() {
+interface Props {
+  isLoggIn: boolean; 
+  onLogout: () => void 
+} 
+
+export function LoginButton({isLoggIn}:Props) {
   return (
-    <NavLink
+    <NavLink 
       to={"/login"}
       className="
       rounded-full
@@ -18,7 +23,9 @@ export function LoginButton() {
       hover:shadow-xl
       "
     >
-      Login
+      {isLoggIn ?
+        "LogOut"
+        : "Login"}
     </NavLink>
   );
 }

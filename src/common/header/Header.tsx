@@ -3,10 +3,14 @@ import { HeaderActions } from "./components/HeaderActions";
 import { HeaderNavigation } from "./components/HeaderNav";
 import { HeaderTitle } from "./components/HeaderTitle";
 import { LoginButton } from "./components/LoginButton";
+import { useAppSelector } from "../../app/hooks";
 
 export function Header() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
+  const user = useAppSelector(
+    (state) => state.auth
+  )
   return (
     <header
       className="
@@ -19,7 +23,7 @@ export function Header() {
       backdrop-blur-xl
       "
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between ">
 
         <HeaderTitle />
 
@@ -38,7 +42,9 @@ export function Header() {
             onProfile={() => {}}
           />
 
-          <LoginButton />
+          <LoginButton isLoggIn={!!user} onLogout={
+            ()=> {}
+          } />
 
         </div>
 

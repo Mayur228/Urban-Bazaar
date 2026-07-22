@@ -1,16 +1,32 @@
 import { FaGoogle } from "react-icons/fa";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { loginWithGoogle } from "../../../api/auth/authThunk";
 
-interface SocialLoginProps {
-  onGoogleLogin?: () => void;
-}
+export function SocialLogin() {
+ const dispatch = useAppDispatch();
 
-export function SocialLogin({
-  onGoogleLogin,
-}: SocialLoginProps) {
+    const navigate = useNavigate();
+
+    const { user, loading } = useAppSelector(
+        (state) => state.auth
+    );
+
+    useEffect(() => {
+        if (user) {
+            navigate("/", { replace: true });
+        }
+    }, [user, navigate]);
   return (
     <button
       type="button"
-      onClick={onGoogleLogin}
+      onClick={
+        () => {
+          dispatch(loginWithGoogle())
+        }
+      }
+      disabled= {loading}
       className="
         flex
         h-12
@@ -32,9 +48,12 @@ export function SocialLogin({
         hover:shadow-md
       "
     >
-      <FaGoogle size={20} />
+      <FaGoogle size={18} />
 
-      Continue with Google
+      {loading ?
+        "Singing In..."
+        :"Continue with Google"
+      }
     </button>
   );
 }
